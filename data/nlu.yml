@@ -3,48 +3,72 @@ version: "3.1"
 nlu:
   - intent: greet
     examples: |
-      - hey
-      - hello
-      - hi
-      - hello there
-      - good morning
-      - good evening
-      - moin
-      - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
+      - salut
+      - bonjour
+      - bonsoir
+      - allons-y
+      - salut mec
 
   - intent: goodbye
     examples: |
-      - cu
-      - good by
-      - cee you later
-      - good night
-      - bye
-      - goodbye
-      - have a nice day
-      - see you around
+      - au revoir
+      - à bientôt
+      - à plus tard
+      - bonne nuit
+      - salut
+      - à tout à l'heure
+      - à la prochaine
       - bye bye
-      - see you later
+      - ciao
+      - Merci, au revoir
+      - merci
+      - bon après-midi
 
-  - intent: affirm
+  - intent: request_table_booking
     examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
+      - Je voudrais réserver une table.
+      - Est-ce que je peux réserver une table pour ce soir ?
+      - Je voudrais réserver une table pour deux personnes.
+      - Pouvez-vous me réserver une table pour demain midi ?
+      - Je souhaite réserver une table en terrasse.
+      - Est-il possible d'avoir une table près de la fenêtre ?
+      - Je veux réserver une table pour quatre personnes.
+      - Pourriez-vous me confirmer une réservation ?
+      - Je désire réserver une table pour ce soir.
+      - Est-ce que je pourrais réserver une table pour six personnes ?
 
-  - intent: deny
+  - intent: request_table_booking_date
     examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
+      - Pour [le 10 juin]{"entity": "date"} à [19 heures]{"entity": "time"}, une table s'il vous plaît.
+      - [Le 25 septembre]{"entity": "date"} à [19 heures]{"entity": "time"}, une table, c'est possible ?
+      - [Le 3 juillet]{"entity": "date"} à [20 heures]{"entity": "time"}, je voudrais une table.
+      - [Le 14 août]{"entity": "date"}, je veux réserver une table.
+      - Pour [le 22 novembre]{"entity": "date"} à [midi]{"entity": "time"}, je souhaiterais une table.
+      - Une table pour [le 28 mars]{"entity": "date"} à [18h30]{"entity": "time"}, s'il vous plaît.
+
+  - intent: request_table_booking_number_people
+    examples: |
+      - Pour [4]{"entity": "nb_people"} personnes.
+      - Le nombre de personnes pour la réservation de la table est de [7]{"entity": "nb_people"}.
+      - Nous avons une réservation pour [5]{"entity": "nb_people"} personnes.
+      - Pour la réservation de la table, nous avons [6]{"entity": "nb_people"} convives.
+      - La table est réservée pour [8]{"entity": "nb_people"} personnes.
+      - Nous avons noté une réservation pour [3]{"entity": "nb_people"} personnes.
+      - Pour votre réservation, nous avons indiqué [9]{"entity": "nb_people"} personnes.
+      - Le nombre de convives pour la réservation est de [2]{"entity": "nb_people"}.
+      - Pour la table réservée, nous attendons [10]{"entity": "nb_people"} personnes.
+      - Nous prévoyons [1]{"entity": "nb_people"} personnes pour la réservation de la table.
+      - Le nombre de personnes pour la réservation est de [12]{"entity": "nb_people"} personnes.
+
+  - intent: request_table_booking_phone_number
+    examples: |
+      - Mon numéro de téléphone est [01 23 45 67 89]{"entity": "phone_number"}.
+      - Je peux être contacté au [06 12 34 56 78]{"entity": "phone_number"}.
+      - Si besoin, mon numéro de téléphone est [04 56 78 12 34]{"entity": "phone_number"}.
+      - Vous pouvez me joindre au [03 45 67 89 10]{"entity": "phone_number"}.
+      - Pour me contacter, composez le [02 34 56 78 90]{"entity": "phone_number"}.
+      - Mon numéro de téléphone personnel est [07 89 01 23 45]{"entity": "phone_number"}.
+      - N'hésitez pas à me contacter au [09 87 65 43 21]{"entity": "phone_number"}.
+      - En cas de besoin, mon numéro de téléphone est [05 67 89 12 34]{"entity": "phone_number"}.
+      - Vous pouvez me appeler au [08 90 12 34 56]{"entity": "phone_number"}.
+      - Si vous avez des questions, mon numéro de téléphone est [01 23 45 67 89]{"entity": "phone_number"}.

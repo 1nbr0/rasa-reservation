@@ -1,0 +1,9 @@
+.rasa
+
+.env
+
+.DS_STORE
+
+venv
+
+actions/__pycache__

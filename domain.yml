@@ -3,18 +3,82 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
+  - request_table_booking
+  - request_table_booking_date
+  - request_table_booking_number_people
+  - request_table_booking_phone_number
+
+entities:
+  - date
+  - time
+  - nb_people
+  - phone_number
+
+slots:
+  date:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: date
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: time
+  nb_people:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: nb_people
+  phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone_number
 
 responses:
-  utter_greet:
-    - text: "Hey! How are you?"
-
-  utter_happy:
-    - text: "Great, carry on!"
-
   utter_goodbye:
     - text: "Bye"
+
+  utter_request_table_booking:
+    - text: Bonjour ! Comment puis-je vous aider ?
+    - text: Salut ! Avez-vous besoin de réserver une table ?
+    - text: Bonjour ! Souhaitez-vous faire une réservation ?
+    - text: Bonjour ! Je suis là pour vous aider à réserver une table.
+    - text: Salut ! Prêt à réserver une table ?
+    - text: Bonjour ! Prêt à passer une bonne soirée ?
+    - text: Hey ! Vous cherchez à réserver une table ?
+    - text: Hello ! Besoin d'une réservation ?
+    - text: Salut ! Je suis là pour vous aider. Besoin d'une table ?
+
+  utter_request_table_booking_date:
+    - text: Quelle date souhaitez-vous réserver la table ?
+    - text: Pour quelle date voudriez-vous réserver la table ?
+    - text: Pouvez-vous me donner la date de réservation souhaitée ?
+    - text: À quelle date souhaitez-vous réserver la table ?
+    - text: Quand voudriez-vous réserver la table ?
+    - text: Pour quelle date et heure souhaitez-vous faire la réservation ?
+    - text: Bonjour ! Pourriez-vous me dire à quelle date vous souhaitez réserver la table ?
+    - text: Bonjour ! Quelle est la date de réservation souhaitée ?
+    - text: Salut ! Pour quelle date souhaitez-vous faire la réservation ?
+
+  utter_request_table_booking_number_people:
+    - text: Pour combien de personnes souhaitez-vous réserver la table ?
+    - text: Combien de personnes seront présentes pour le repas ?
+    - text: Quel est le nombre de personnes pour la réservation de la table ?
+    - text: Avez-vous une idée du nombre de personnes qui assisteront au dîner ?
+    - text: Pourriez-vous me dire pour combien de personnes je dois réserver la table ?
+    - text: J'aurais besoin de connaître le nombre de personnes pour la réservation, s'il vous plaît.
+
+  utter_request_table_booking_phone_number:
+    - text: Renseigner un numéro de téléphone pour la réservation.
+
+  utter_request_table_booking_resume_and_date_verification:
+    - text: Pour récapituler, vous souhaitez réserver une table pour le {date} à {time} pour {nb_people}. Votre numéro de téléphone est {phone_number} Pouvez-vous confirmer ces informations?
 
 session_config:
   session_expiration_time: 60

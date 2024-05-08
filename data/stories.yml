@@ -4,16 +4,21 @@ stories:
   - story: table booking path
     steps:
       - intent: greet
-      - action: utter_greet
+      - action: utter_request_table_booking
       - intent: request_table_booking
-      - action: utter_request_table_booking_city
+      - action: utter_request_table_booking_date
 
   - story: table booking date path
     steps:
       - intent: request_table_booking_date
-      - action: utter_request_table_booking_date
+      - action: utter_request_table_booking_number_people
 
   - story: table booking number people path
     steps:
       - intent: request_table_booking_number_people
-      - action: utter_request_table_booking_date
+      - action: utter_request_table_booking_phone_number
+
+  - story: table booking phone number path
+    steps:
+      - intent: request_table_booking_phone_number
+      - action: utter_request_table_booking_resume_and_date_verification
