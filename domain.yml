@@ -1,84 +1,164 @@
 version: "3.1"
 
 intents:
-  - greet
+  - salutation
   - goodbye
-  - request_table_booking
-  - request_table_booking_date
-  - request_table_booking_number_people
-  - request_table_booking_phone_number
+  - booking
+  - cancel_booking
+  - info_booking
+  - menu_of_the_day
+  - allergens
+  - menu
+  - commentary
+  - date
+  - time
+  - number_people
+  - phone_number
+  - customer_name
+  - confirm
+  - cancel
+  - code_resa
+
+# actions:
+#   - action_check_enough_space
+#   - action_create_booking
+#   - action_check_code_resa
+#   - action_update_booking_comment
+#   - action_set_slot_cancel
+#   - action_set_slot_info
+#   - action_delete_booking
 
 entities:
   - date
   - time
-  - nb_people
-  - phone_number
+  - nb_person
+  - phone_nb
+  - customer_name
+  - commentary
+  - bookingId
 
 slots:
-  date:
+  available:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  isBookingExist:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  infoResa:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  slot_phone_nb:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone_nb
+
+  slot_nb_person:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: nb_person
+
+  slot_code_resa:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: bookingId
+
+  slot_commentary:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: commentary
+
+  slot_date:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: date
-  time:
+
+  slot_time:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: time
-  nb_people:
+
+  slot_name:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
-        entity: nb_people
-  phone_number:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: phone_number
+        entity: customer_name
 
 responses:
+  utter_salutation:
+    - text: |
+        Bonjour !
+        En quoi puis-je vous aidez ?
+          - Nouvelle réservation
+          - Annuler une réservation
+          - Info sur une réservation
+          - Menu du jour
+          - Liste des allergènes
+          - Lien vers la carte
+
   utter_goodbye:
-    - text: "Bye"
+    - text: "Au revoir l'ami"
 
-  utter_request_table_booking:
-    - text: Bonjour ! Comment puis-je vous aider ?
-    - text: Salut ! Avez-vous besoin de réserver une table ?
-    - text: Bonjour ! Souhaitez-vous faire une réservation ?
-    - text: Bonjour ! Je suis là pour vous aider à réserver une table.
-    - text: Salut ! Prêt à réserver une table ?
-    - text: Bonjour ! Prêt à passer une bonne soirée ?
-    - text: Hey ! Vous cherchez à réserver une table ?
-    - text: Hello ! Besoin d'une réservation ?
-    - text: Salut ! Je suis là pour vous aider. Besoin d'une table ?
+  utter_date:
+    - text: À quelle date souhaitez-vous réserver la table ? (JJ/MM/YYYY)
 
-  utter_request_table_booking_date:
-    - text: Quelle date souhaitez-vous réserver la table ?
-    - text: Pour quelle date voudriez-vous réserver la table ?
-    - text: Pouvez-vous me donner la date de réservation souhaitée ?
-    - text: À quelle date souhaitez-vous réserver la table ?
-    - text: Quand voudriez-vous réserver la table ?
-    - text: Pour quelle date et heure souhaitez-vous faire la réservation ?
-    - text: Bonjour ! Pourriez-vous me dire à quelle date vous souhaitez réserver la table ?
-    - text: Bonjour ! Quelle est la date de réservation souhaitée ?
-    - text: Salut ! Pour quelle date souhaitez-vous faire la réservation ?
-
-  utter_request_table_booking_number_people:
-    - text: Pour combien de personnes souhaitez-vous réserver la table ?
+  utter_number_people:
     - text: Combien de personnes seront présentes pour le repas ?
-    - text: Quel est le nombre de personnes pour la réservation de la table ?
-    - text: Avez-vous une idée du nombre de personnes qui assisteront au dîner ?
-    - text: Pourriez-vous me dire pour combien de personnes je dois réserver la table ?
-    - text: J'aurais besoin de connaître le nombre de personnes pour la réservation, s'il vous plaît.
 
-  utter_request_table_booking_phone_number:
+  utter_phone_number:
     - text: Renseigner un numéro de téléphone pour la réservation.
 
-  utter_request_table_booking_resume_and_date_verification:
-    - text: Pour récapituler, vous souhaitez réserver une table pour le {date} à {time} pour {nb_people}. Votre numéro de téléphone est {phone_number} Pouvez-vous confirmer ces informations?
+  utter_custommer_name:
+    - text: C'est noté, quel nom pour la réservation ?
+
+  utter_resume_and_date_verification:
+    - text: Pour récapituler, vous souhaitez réserver une table pour le {date} à {time} pour {nb_person}. Votre numéro de téléphone est {phone_number} Pouvez-vous confirmer ces informations?
+
+  # Cancel booking
+  utter_cancel_booking:
+    - text: Veuillez saisir le code de réservation
+
+  # Info booking
+  utter_info_booking:
+    - text: Veuillez saisir le code de réservation
+
+  # Menu of the day
+  utter_menu_of_the_day:
+    - text: Le menu du jour.
+      image: "https://lapiscinenantes.com/wp-content/uploads/2023/11/PISCINE-web-4.jpg"
+
+  # Allergens
+  utter_allergens:
+    - text: Liste des allergènes est disponible ici.
+
+  # Menu
+  utter_menu:
+    - text: La carte est disponible ici.
+
+  # commentary
+  utter_commentary:
+    - text: Veuillez saisir le commentaire
 
 session_config:
   session_expiration_time: 60

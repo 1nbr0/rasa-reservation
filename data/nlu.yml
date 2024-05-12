@@ -1,31 +1,16 @@
 version: "3.1"
 
 nlu:
-  - intent: greet
+  - intent: salutation
     examples: |
       - salut
       - bonjour
       - bonsoir
-      - allons-y
       - salut mec
 
-  - intent: goodbye
+  - intent: booking
     examples: |
-      - au revoir
-      - à bientôt
-      - à plus tard
-      - bonne nuit
-      - salut
-      - à tout à l'heure
-      - à la prochaine
-      - bye bye
-      - ciao
-      - Merci, au revoir
-      - merci
-      - bon après-midi
-
-  - intent: request_table_booking
-    examples: |
+      - Nouvelle réservation
       - Je voudrais réserver une table.
       - Est-ce que je peux réserver une table pour ce soir ?
       - Je voudrais réserver une table pour deux personnes.
@@ -37,38 +22,212 @@ nlu:
       - Je désire réserver une table pour ce soir.
       - Est-ce que je pourrais réserver une table pour six personnes ?
 
-  - intent: request_table_booking_date
+  - intent: cancel_booking
     examples: |
-      - Pour [le 10 juin]{"entity": "date"} à [19 heures]{"entity": "time"}, une table s'il vous plaît.
-      - [Le 25 septembre]{"entity": "date"} à [19 heures]{"entity": "time"}, une table, c'est possible ?
-      - [Le 3 juillet]{"entity": "date"} à [20 heures]{"entity": "time"}, je voudrais une table.
-      - [Le 14 août]{"entity": "date"}, je veux réserver une table.
-      - Pour [le 22 novembre]{"entity": "date"} à [midi]{"entity": "time"}, je souhaiterais une table.
-      - Une table pour [le 28 mars]{"entity": "date"} à [18h30]{"entity": "time"}, s'il vous plaît.
+      - Annuler une réservation
+      - Annuler
 
-  - intent: request_table_booking_number_people
+  - intent: info_booking
     examples: |
-      - Pour [4]{"entity": "nb_people"} personnes.
-      - Le nombre de personnes pour la réservation de la table est de [7]{"entity": "nb_people"}.
-      - Nous avons une réservation pour [5]{"entity": "nb_people"} personnes.
-      - Pour la réservation de la table, nous avons [6]{"entity": "nb_people"} convives.
-      - La table est réservée pour [8]{"entity": "nb_people"} personnes.
-      - Nous avons noté une réservation pour [3]{"entity": "nb_people"} personnes.
-      - Pour votre réservation, nous avons indiqué [9]{"entity": "nb_people"} personnes.
-      - Le nombre de convives pour la réservation est de [2]{"entity": "nb_people"}.
-      - Pour la table réservée, nous attendons [10]{"entity": "nb_people"} personnes.
-      - Nous prévoyons [1]{"entity": "nb_people"} personnes pour la réservation de la table.
-      - Le nombre de personnes pour la réservation est de [12]{"entity": "nb_people"} personnes.
+      - Info sur une réservation
+      - Info
 
-  - intent: request_table_booking_phone_number
+  - intent: menu_of_the_day
     examples: |
-      - Mon numéro de téléphone est [01 23 45 67 89]{"entity": "phone_number"}.
-      - Je peux être contacté au [06 12 34 56 78]{"entity": "phone_number"}.
-      - Si besoin, mon numéro de téléphone est [04 56 78 12 34]{"entity": "phone_number"}.
-      - Vous pouvez me joindre au [03 45 67 89 10]{"entity": "phone_number"}.
-      - Pour me contacter, composez le [02 34 56 78 90]{"entity": "phone_number"}.
-      - Mon numéro de téléphone personnel est [07 89 01 23 45]{"entity": "phone_number"}.
-      - N'hésitez pas à me contacter au [09 87 65 43 21]{"entity": "phone_number"}.
-      - En cas de besoin, mon numéro de téléphone est [05 67 89 12 34]{"entity": "phone_number"}.
-      - Vous pouvez me appeler au [08 90 12 34 56]{"entity": "phone_number"}.
-      - Si vous avez des questions, mon numéro de téléphone est [01 23 45 67 89]{"entity": "phone_number"}.
+      - Menu du jour
+      - Plat du jour
+      - Quel est le menu du jour ?
+      - Avez-vous un menu du jour ?
+
+  - intent: allergens
+    examples: |
+      - Liste des allergènes
+      - allergènes
+
+  - intent: menu
+    examples: |
+      - Lien vers la carte
+      - carte
+
+  - intent: commentary
+    examples: |
+      - [Ceci est un exemple de commentaire]{"entity": "commentary"}
+      - [Je voudrai un gateau surprise]{"entity": "commentary"}
+      - [C'est pour un anniversaire surprise]{"entity": "commentary"}
+      - [Veuillez nous réserver une table près de la fenêtre]{"entity": "commentary"}
+      - [Nous célébrons notre anniversaire de mariage]{"entity": "commentary"}
+      - [Nous sommes un groupe et préférons être assis ensemble]{"entity": "commentary"}
+      - [Ce sera notre première visite dans votre restaurant]{"entity": "commentary"}
+      - [Je prévois une soirée surprise pour mon conjoint]{"entity": "commentary"}
+      - [Nous aimons beaucoup votre cuisine et avons hâte de venir]{"entity": "commentary"}
+      - [Est-ce possible d'avoir une vue sur le jardin ?]{"entity": "commentary"}
+      - [Nous avons entendu parler de votre excellente réputation]{"entity": "commentary"}
+      - [Merci de prévoir un menu végétarien pour nous]{"entity": "commentary"}
+      - [Nous avons des invités spéciaux à impressionner ce soir]{"entity": "commentary"}
+
+  - intent: date
+    examples: |
+      - [14/04/2024](date) serait une bonne date.
+      - Est-ce que [07/04/24](date) convient ?
+      - J'aimerais réserver pour le [23/05/2024](date).
+      - Pouvez-vous noter [30/06/24](date) dans votre système ?
+      - Je prévois une réunion le [10/08/2024](date).
+      - Pourrions-nous fixer quelque chose pour le [02/09/24](date) ?
+      - Le [15/10/2024](date) serait-il disponible ?
+      - Je suis flexible, mais le [05/11/24](date) serait préférable.
+      - Pourrions-nous envisager le [20/12/2024](date) ?
+      - Le [18/01/25](date) vous convient-il ?
+      - Je serai disponible à partir du [09/02/2025](date).
+      - Serait-il possible de réserver pour le [27/03/25](date) ?
+      - Est-ce que le [14/04/2025](date) est toujours libre ?
+      - J'aimerais planifier quelque chose pour le [01/05/25](date).
+      - Le [20/06/2025](date) semble être une bonne option.
+
+  - intent: time
+    examples: |
+      - [19:00](time)
+      - [21h](time)
+
+  - intent: number_people
+    examples: |
+      - Pour [4]{"entity": "nb_person"} personnes.
+      - Le nombre de personnes pour la réservation de la table est de [7]{"entity": "nb_person"}.
+      - Nous avons une réservation pour [5]{"entity": "nb_person"} personnes.
+      - Pour la réservation de la table, nous avons [6]{"entity": "nb_person"} convives.
+      - La table est réservée pour [8]{"entity": "nb_person"} personnes.
+      - Nous avons noté une réservation pour [3]{"entity": "nb_person"} personnes.
+      - Pour votre réservation, nous avons indiqué [9]{"entity": "nb_person"} personnes.
+      - Le nombre de convives pour la réservation est de [2]{"entity": "nb_person"}.
+      - Pour la table réservée, nous attendons [10]{"entity": "nb_person"} personnes.
+      - Nous prévoyons [1]{"entity": "nb_person"} personnes pour la réservation de la table.
+      - Le nombre de personnes pour la réservation est de [12]{"entity": "nb_person"} personnes.
+
+  - intent: phone_number
+    examples: |
+      - Mon numéro de téléphone est [04.56.78.90.12](phone_nb):
+      - Je peux être contacté au [06 12 34 56 78](phone_nb).
+      - Si besoin, mon numéro de téléphone est [04 56 78 12 34](phone_nb).
+      - Vous pouvez me joindre au [03 45 67 89 10](phone_nb).
+      - Pour me contacter, composez le [02 34 56 78 90](phone_nb).
+      - Mon numéro de téléphone personnel est [07 89 01 23 45](phone_nb).
+      - N'hésitez pas à me contacter au [09 87 65 43 21](phone_nb).
+      - En cas de besoin, mon numéro de téléphone est [05 67 89 12 34](phone_nb).
+      - Vous pouvez me appeler au [08 90 12 34 56](phone_nb).
+      - Si vous avez des questions, mon numéro de téléphone est [04.56.78.90.12](phone_nb).
+      - Mon numéro de téléphone est [09.87.65.43.21](phone_nb):
+      - Vous pouvez me contacter au [+33(0)9.87.65.43.21](phone_nb).
+      - Oui, mon numéro est le [09-87-65-43-21](phone_nb).
+      - Voici mon numéro : [09.87.65.43.21](phone_nb).
+
+  - intent: customer_name
+    examples: |
+      - La réservation sera au nom de [Miller](customer_name).
+      - Le nom pour la réservation est [Schmidt](customer_name).
+      - La réservation est au nom de [Müller](customer_name).
+      - Je suis [Garcia](customer_name) pour la réservation.
+      - Pour la réservation, le nom est [Smith](customer_name).
+      - Le nom utilisé pour la réservation est [Gonzalez](customer_name).
+      - Vous pouvez mettre la réservation au nom de [Lopez](customer_name).
+      - La réservation sera au nom de [Taylor](customer_name).
+      - Je suis [Johnson](customer_name), j'ai réservé une table.
+      - Le nom pour la réservation est [Anderson](customer_name).
+      - La réservation est faite au nom de [Brown](customer_name).
+      - Mettez la réservation au nom de [Davis](customer_name).
+      - Le nom associé à la réservation est [Wilson](customer_name).
+      - La réservation est au nom de [Martinez](customer_name).
+      - Vous pouvez noter la réservation au nom de [Perez](customer_name).
+      - Le nom pour la réservation est [Martin](customer_name).
+      - La réservation sera au nom de [Gomez](customer_name).
+      - Mettez la réservation au nom de [Harris](customer_name).
+      - Le nom pour la réservation est [Thompson](customer_name).
+      - Je suis [Jackson](customer_name), pour la réservation.
+      - Pour [Walker](customer_name), s'il vous plaît.
+      - La réservation est pour [White](customer_name).
+      - Mettez-la sous [Lewis](customer_name).
+      - La réservation sera au nom de [Hall](customer_name).
+      - Je suis [Young](customer_name) pour la réservation.
+      - Pour [Clark](customer_name), merci.
+      - La réservation est pour [Allen](customer_name).
+      - Mettez-la sous [King](customer_name).
+      - Pour [Scott](customer_name), s'il vous plaît.
+      - La réservation sera au nom de [Adams](customer_name).
+      - Je suis [Baker](customer_name) pour la réservation.
+      - Pour [Hill](customer_name), merci.
+
+  - intent: confirm
+    examples: |
+      - Oui
+      - Exactement
+      - C'est ça
+      - Tout à fait
+      - Bien sûr
+      - Absolument
+      - Oui, c'est correct
+      - Oui, tout à fait
+      - Oui, c'est bien ça
+      - Oui, c'est exact
+      - Oui, c'est juste
+      - Oui, c'est bon
+      - Oui, c'est précis
+      - C'est ok
+      - ok, je confirme
+      - je confirme
+
+  - intent: cancel
+    examples: |
+      - Non
+      - Annuler
+      - Faux
+      - Pas du tout
+      - Ne pas procéder
+      - Je retire ma réservation
+      - Non, merci
+      - Je ne veux plus
+      - Arrêtez
+      - Non, ce n'est pas bon
+      - Je change d'avis
+      - Ce n'est pas ce que je veux
+
+  - intent: code_resa
+    examples: |
+      - Mon code de réservation est : [5]{"entity": "bookingId"}
+      - [52]{"entity": "bookingId"}
+      - [505]{"entity": "bookingId"}
+      - Le code de réservation est : [123]{"entity": "bookingId"}
+      - J'ai un code de réservation : [987]{"entity": "bookingId"}
+      - Voici mon code de réservation : [456]{"entity": "bookingId"}
+      - Mon numéro de réservation est : [789]{"entity": "bookingId"}
+      - Le numéro de réservation que j'ai est : [654]{"entity": "bookingId"}
+      - Je peux vous donner le code de réservation : [321]{"entity": "bookingId"}
+      - Mon code de réservation personnel est : [555]{"entity": "bookingId"}
+
+  - intent: goodbye
+    examples: |
+      - au revoir
+      - à bientôt
+      - à plus tard
+      - bonne nuit
+      - à tout à l'heure
+      - à la prochaine
+      - bye bye
+      - ciao
+      - Merci, au revoir
+      - merci
+      - bon après-midi
+
+  - regex: date
+    examples: |
+      - \d{1,2}\/\d{1,2}\/\d{2,4}
+
+  - regex: customer_name
+    examples: |
+      - [A-Za-z]+
+      - [A-Za-z-' ]+
+      - [A-Z]+
+      - [a-z]+
+
+  - regex: phone_nb
+    examples: |
+      - (?:\+33|0)[1-9](?:\d{2}){4}
+      - (?:\+33|0)[1-9]\d{8}
+      - (?:\+33|0)[1-9]\d{2}\.\d{2}\.\d{2}\.\d{2}

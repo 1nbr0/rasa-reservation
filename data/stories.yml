@@ -1,24 +1,86 @@
 version: "3.1"
 
 stories:
-  - story: table booking path
+  - story: salutation_story
     steps:
-      - intent: greet
-      - action: utter_request_table_booking
-      - intent: request_table_booking
-      - action: utter_request_table_booking_date
+      - intent: salutation
+      - action: utter_salutation
 
-  - story: table booking date path
+  - story: new_booking_story
     steps:
-      - intent: request_table_booking_date
-      - action: utter_request_table_booking_number_people
+      - intent: booking
+      - action: utter_date
+      - intent: date
+        entities:
+          - entity_name: slot_date
+      - action: utter_number_people
+      - intent: number_people
+        entities:
+          - entity_name: slot_nb_person
+      - action: utter_custommer_name
+      # - action: action_check_enough_space
 
-  - story: table booking number people path
+  - story: new_booking_story_path_2
     steps:
-      - intent: request_table_booking_number_people
-      - action: utter_request_table_booking_phone_number
+      - or:
+          - slot_was_set:
+              - available: true
+      - intent: customer_name
+        entities:
+          - entity_name: slot_name
+      - action: utter_phone_number
+      - intent: phone_number
+        entities:
+          - entity_name: slot_phone_nb
+      # - action: action_create_booking
+      - action: utter_commentary
+      - intent: commentary
+        entities:
+          - entity_name: slot_commentary
+    # - action: action_update_booking_comment
 
-  - story: table booking phone number path
+  - story: cancel_booking_story
     steps:
-      - intent: request_table_booking_phone_number
-      - action: utter_request_table_booking_resume_and_date_verification
+      - intent: cancel
+      # - action: action_set_slot_cancel
+      - action: utter_cancel_booking
+      - intent: code_resa
+        entities:
+          - entity_name: slot_code_resa
+      # - action: action_check_code_resa
+
+  - story: info_booking_story
+    steps:
+      - intent: info_booking
+      # - action: action_set_slot_info
+      - action: utter_info_booking
+      - intent: code_resa
+        entities:
+          - entity_name: slot_code_resa
+    # - action: action_check_code_resa
+
+  - story: menu_of_the_day_story
+    steps:
+      - intent: menu_of_the_day
+      - action: utter_menu_of_the_day
+
+  - story: allergens_story
+    steps:
+      - intent: allergens
+      - action: utter_allergens
+
+  - story: menu_story
+    steps:
+      - intent: menu
+      - action: utter_menu
+
+  - story: add_commentary_story
+    steps:
+      - or:
+          - slot_was_set:
+              - isBookingExist: true
+              - infoResa: true
+      - intent: commentary
+        entities:
+          - entity_name: slot_commentary
+    # - action: action_update_booking_comment
