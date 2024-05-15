@@ -67,7 +67,7 @@ nlu:
 
   - intent: date
     examples: |
-      - [14/04/2024](date) serait une bonne date.
+      - [14/04/2024](date)
       - Est-ce que [07/04/24](date) convient ?
       - J'aimerais réserver pour le [23/05/2024](date).
       - Pouvez-vous noter [30/06/24](date) dans votre système ?
@@ -90,6 +90,7 @@ nlu:
 
   - intent: number_people
     examples: |
+      - [2]{"entity": "nb_person"}.
       - Pour [4]{"entity": "nb_person"} personnes.
       - Le nombre de personnes pour la réservation de la table est de [7]{"entity": "nb_person"}.
       - Nous avons une réservation pour [5]{"entity": "nb_person"} personnes.
@@ -104,7 +105,8 @@ nlu:
 
   - intent: phone_number
     examples: |
-      - Mon numéro de téléphone est [04.56.78.90.12](phone_nb):
+      - [04.56.78.90.12](phone_nb)
+      - Mon numéro de téléphone est [04.56.78.90.12](phone_nb)
       - Je peux être contacté au [06 12 34 56 78](phone_nb).
       - Si besoin, mon numéro de téléphone est [04 56 78 12 34](phone_nb).
       - Vous pouvez me joindre au [03 45 67 89 10](phone_nb).
@@ -118,9 +120,24 @@ nlu:
       - Vous pouvez me contacter au [+33(0)9.87.65.43.21](phone_nb).
       - Oui, mon numéro est le [09-87-65-43-21](phone_nb).
       - Voici mon numéro : [09.87.65.43.21](phone_nb).
+      - [0712345678](phone_nb)
+      - [07 12 34 56 78](phone_nb)
+      - [+33712345678](phone_nb)
+      - [07.12.34.56.78](phone_nb)
+      - [+33(0)712345678](phone_nb)
+      - [07-12-34-56-78](phone_nb)
+      - [07.12.34.56.78](phone_nb)
+      - [+33 7.12.34.56.78](phone_nb)
+      - [07 12.34.56.78](phone_nb)
+      - [+33712345678](phone_nb)
+      - [07-12-34-56-78](phone_nb)
+      - [+33 712345678](phone_nb)
+      - [07.12.34.56.78](phone_nb)
 
   - intent: customer_name
     examples: |
+      - [Heude](customer_name)
+      - [TURPIN](customer_name)
       - La réservation sera au nom de [Miller](customer_name).
       - Le nom pour la réservation est [Schmidt](customer_name).
       - La réservation est au nom de [Müller](customer_name).

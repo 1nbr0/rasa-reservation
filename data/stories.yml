@@ -13,18 +13,22 @@ stories:
       - intent: date
         entities:
           - entity_name: slot_date
+      - action: utter_time
+      - intent: time
+        entities:
+          - entity_name: slot_time
       - action: utter_number_people
       - intent: number_people
         entities:
           - entity_name: slot_nb_person
       - action: utter_custommer_name
-      # - action: action_check_enough_space
+      # - action: action_check_is_available
 
   - story: new_booking_story_path_2
     steps:
       - or:
           - slot_was_set:
-              - available: true
+              - isAvailable: true
       - intent: customer_name
         entities:
           - entity_name: slot_name
@@ -32,7 +36,7 @@ stories:
       - intent: phone_number
         entities:
           - entity_name: slot_phone_nb
-      # - action: action_create_booking
+      - action: action_create_booking
       - action: utter_commentary
       - intent: commentary
         entities:

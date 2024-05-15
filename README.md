@@ -4,7 +4,7 @@ Ce projet propose un bot de réservation pour un restaurant, permettant aux util
 
 ## Fonctionnalités ⚙️
 
-- [ ] **Réserver une Table**
+- [x] **Réserver une Table**
 
   - Permet aux utilisateurs de réserver une table en fournissant la date de réservation, le nombre de personnes, le nom de réservation et le numéro de téléphone.
 

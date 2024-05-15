@@ -19,9 +19,9 @@ intents:
   - cancel
   - code_resa
 
-# actions:
-#   - action_check_enough_space
-#   - action_create_booking
+actions:
+  #   - action_check_is_available
+  - action_create_booking
 #   - action_check_code_resa
 #   - action_update_booking_comment
 #   - action_set_slot_cancel
@@ -38,13 +38,19 @@ entities:
   - bookingId
 
 slots:
-  available:
+  isAvailable:
     type: bool
     influence_conversation: true
     mappings:
       - type: custom
 
   isBookingExist:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
+
+  booking_created:
     type: bool
     influence_conversation: true
     mappings:
@@ -122,6 +128,9 @@ responses:
 
   utter_date:
     - text: À quelle date souhaitez-vous réserver la table ? (JJ/MM/YYYY)
+
+  utter_time:
+    - text: À quelle heure ? (HH:mm)
 
   utter_number_people:
     - text: Combien de personnes seront présentes pour le repas ?
