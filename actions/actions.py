@@ -257,8 +257,9 @@ class GetBookingInfo(Action):
                     f"Heure : {time}\n"
                     f"Commentaire : {commentary}")
         dispatcher.utter_message(response)
+        dispatcher.utter_message("\nVoulez-vous modifier le commentaire ? (oui/non)")
       else:
-        dispatcher.utter_message("Aucune réservation trouvée avec le code fourni.")
+        dispatcher.utter_message("Aucune réservation trouvée avec le code fourni.\n \nVeuillez re saisir le code de réservation, s'il vous plaît.")
 
     except psycopg2.Error as e:
       dispatcher.utter_message(f"Erreur lors de la récupération des informations de réservation : {str(e)}")

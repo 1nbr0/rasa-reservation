@@ -63,6 +63,10 @@ stories:
         entities:
           - entity_name: slot_booking_code
       - action: action_get_booking_info
+      - intent: confirm
+      - action: utter_commentary
+      - intent: commentary
+      - action: action_update_booking_commentary
 
   - story: menu_of_the_day_story
     steps:
@@ -78,14 +82,3 @@ stories:
     steps:
       - intent: menu
       - action: utter_menu
-
-  - story: add_commentary_story
-    steps:
-      - or:
-          - slot_was_set:
-              - isBookingExist: true
-              - infoResa: true
-      - intent: commentary
-        entities:
-          - entity_name: slot_commentary
-      # - action: action_update_booking_comment

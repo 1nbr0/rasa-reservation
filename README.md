@@ -8,35 +8,35 @@ Ce projet propose un bot de réservation pour un restaurant, permettant aux util
 
   - Permet aux utilisateurs de réserver une table en fournissant la date de réservation, le nombre de personnes, le nom de réservation et le numéro de téléphone.
 
-- [ ] **Vérifier la Disponibilité**
+- [x] **Vérifier la Disponibilité**
 
   - Vérifie la disponibilité des tables pour la date spécifiée.
 
-- [ ] **Obtenir un Numéro de Réservation**
+- [x] **Obtenir un Numéro de Réservation**
 
   - Génère un numéro de réservation unique pour chaque réservation effectuée.
 
-- [ ] **Ajouter un Commentaire à la Réservation**
+- [x] **Ajouter un Commentaire à la Réservation**
 
   - Permet aux utilisateurs d'ajouter un commentaire à leur réservation.
 
-- [ ] **Annuler une Réservation**
+- [x] **Annuler une Réservation**
 
   - Permet d'annuler une réservation existante.
 
-- [ ] **Afficher Information Réservation et Modifier Commentaire**
+- [x] **Afficher Information Réservation et Modifier Commentaire**
 
   - Affiche les détails de la réservation et permet de modifier le commentaire associé.
 
-- [ ] **Obtenir la Liste des Allergènes**
+- [x] **Obtenir la Liste des Allergènes**
 
   - Fournit une liste des allergènes présents dans les plats du restaurant.
 
-- [ ] **Obtenir le Menu du Jour**
+- [x] **Obtenir le Menu du Jour**
 
   - Affiche le menu du jour proposé par le restaurant.
 
-- [ ] **Obtenir le Lien vers le Menu Complet**
+- [x] **Obtenir le Lien vers le Menu Complet**
 
   - Donne accès au menu complet du restaurant.
 

@@ -161,11 +161,34 @@ responses:
 
   # Allergens
   utter_allergens:
-    - text: Liste des allergènes est disponible ici.
+    - text: |
+        Voici la liste des allergènes
+        1. Gluten
+        2. Crustacés
+        3. Œufs
+        4. Poissons
+        5. Arachides
+        6. Soja
+        7. Lait
+        8. Fruits à coque (amandes, noisettes, noix de cajou, noix de pécan, noix du Brésil, pistaches, noix de macadamia)
+        9. Céleri
+        10. Moutarde
+        11. Graines de sésame
+        12. Anhydride sulfureux et sulfites
+        13. Lupin
+        14. Mollusques
 
   # Menu
   utter_menu:
-    - text: La carte est disponible ici.
+    - text: |
+        Voici notre menu
+        _________________________________________________________________________
+        |       Entrées         |        Plats          |       Desserts        |
+        |-----------------------|-----------------------|-----------------------|
+        | Salade César          | Poulet rôti           | Tarte aux pommes      |
+        | Soupe à l'oignon      | Saumon grillé         | Mousse au chocolat    |
+        | Foie gras             | Spaghetti bolognaise  | Crème brûlée          |
+        -------------------------------------------------------------------------
 
   # commentary
   utter_commentary:
