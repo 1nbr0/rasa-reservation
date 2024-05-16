@@ -45,21 +45,72 @@ Ce projet propose un bot de réservation pour un restaurant, permettant aux util
 
 ## Utilisation 📝
 
-Pour utiliser ce bot, suivez les instructions suivantes :
+### Guide d'installation et d'utilisation de Rasa Chatbot
 
-1. Clonez ce dépôt sur votre machine locale.
-2. Assurez-vous d'avoir Docker installé.
-3. Exécutez les conteneurs Docker pour déployer le bot.
-4. Intégrez le bot sur la plateforme de votre choix en utilisant les API appropriées.
-
-## Contribution 🤝
-
-Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet, veuillez soumettre une pull request avec vos modifications.
-
-## Contact 📞
-
-Pour toute question ou préoccupation, n'hésitez pas à nous contacter à [adresse email].
+Ce guide explique comment installer Rasa localement et démarrer un chatbot avec des actions.
 
 ---
 
-**Note:** Pour une expérience optimale, assurez-vous de consulter le guide de contribution et les instructions d'installation fournies dans ce dépôt.
+## Installation
+
+### Prérequis
+
+- Assurez-vous d'avoir Python 3.6 ou une version ultérieure installée sur votre système. Vous pouvez vérifier en exécutant la commande suivante :
+
+```bash
+python --version
+```
+
+### Création de l'environnement virtuel (optionnel mais recommandé)
+
+```bash
+python -m venv rasa_env
+```
+
+#### Activez l'environnement virtuel :
+
+- Sur Windows :
+
+```bash
+rasa_env\Scripts\activate
+```
+
+- Sur macOS et Linux :
+
+```bash
+source rasa_env/bin/activate
+```
+
+### Installation de Rasa
+
+```bash
+pip install rasa
+```
+
+### Installation des dépendances supplémentaires pour les actions personnalisées
+
+```bash
+pip install rasa-sdk
+```
+
+---
+
+## Utilisation
+
+### Entraînement du modèle
+
+```bash
+rasa train
+```
+
+### Lancement du serveur d'actions
+
+```bash
+rasa run actions
+```
+
+### Utilisation du chatbot
+
+```bash
+rasa shell
+```
