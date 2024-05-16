@@ -81,7 +81,7 @@ class CreateBooking(Action):
       connection.commit()
 
       dispatcher.utter_message(f"Votre réservation a été créée avec succès! Votre code de réservation est : {booking_code} \n\nVeuillez garder ce numéro précieusement.\nIl vous sera demandé de le renseigner si vous souhaitez obtenir des infos ou annuler votre réservation.")
-      dispatcher.utter_message(f"\nVoulez-vous un résumé de votre réservation ?")
+      dispatcher.utter_message(f"\n\nPour résumer, vous souhaitez réserver une table pour le {slot_date} à {slot_time} pour {slot_nb_person} au nom de {slot_name}. \nVotre numéro de téléphone est {slot_phone_nb}.")
       return [SlotSet("booking_created", True)]
 
     except psycopg2.Error as e:

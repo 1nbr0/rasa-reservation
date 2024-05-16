@@ -25,35 +25,33 @@ stories:
 
   - story: new_booking_story_path_2
     steps:
-    - or:
-      - slot_was_set:
-          - isAvailable: true
-    - intent: customer_name
-      entities:
-        - entity_name: slot_name
-    - action: utter_phone_number
-    - intent: phone_number
-      entities:
-        - entity_name: slot_phone_nb
-    - action: utter_commentary
-    - intent: commentary
-      entities:
-        - entity_name: slot_commentary
-    - action: action_create_booking
-    - intent: confirm
-    - action: utter_resume
+      - or:
+          - slot_was_set:
+              - isAvailable: true
+      - intent: customer_name
+        entities:
+          - entity_name: slot_name
+      - action: utter_phone_number
+      - intent: phone_number
+        entities:
+          - entity_name: slot_phone_nb
+      - action: utter_commentary
+      - intent: commentary
+        entities:
+          - entity_name: slot_commentary
+      - action: action_create_booking
 
   - story: cancel_booking_story
     steps:
-    - intent: cancel_booking
-    - action: utter_cancel_booking
-    - intent: booking_code
-      entities:
-        - entity_name: slot_booking_code
-    - action: action_check_booking_code
-    - slot_was_set:
-        - isBookingExist: True
-    - action: action_delete_booking
+      - intent: cancel_booking
+      - action: utter_cancel_booking
+      - intent: booking_code
+        entities:
+          - entity_name: slot_booking_code
+      - action: action_check_booking_code
+      - slot_was_set:
+          - isBookingExist: True
+      - action: action_delete_booking
 
   - story: info_booking_story
     steps:
@@ -63,9 +61,9 @@ stories:
         entities:
           - entity_name: slot_booking_code
       - action: action_get_booking_info
-      - intent: confirm
-      - action: utter_commentary
-      - intent: commentary
+      - intent: confirm_update_commentary
+      - action: utter_commentary_info
+      - intent: updated_commentary
       - action: action_update_booking_commentary
 
   - story: menu_of_the_day_story

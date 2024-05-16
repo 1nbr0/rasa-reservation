@@ -92,6 +92,9 @@ nlu:
       - [Nous sommes un groupe et préférons être assis ensemble]{"entity": "commentary"}
       - [Ce sera notre première visite dans votre restaurant]{"entity": "commentary"}
       - [Je prévois une soirée surprise pour mon conjoint]{"entity": "commentary"}
+
+  - intent: updated_commentary
+    examples: |
       - [Nous aimons beaucoup votre cuisine et avons hâte de venir]{"entity": "commentary"}
       - [Est-ce possible d'avoir une vue sur le jardin ?]{"entity": "commentary"}
       - [Nous avons entendu parler de votre excellente réputation]{"entity": "commentary"}
@@ -204,9 +207,16 @@ nlu:
       - Je suis [Baker](customer_name) pour la réservation.
       - Pour [Hill](customer_name), merci.
 
-  - intent: confirm
+  - intent: confirm_update_commentary
     examples: |
       - Oui
+      - Oui, c'est bien ça
+      - Oui, c'est exact
+      - Oui, c'est juste
+      - Oui, c'est bon
+      - Oui, c'est précis
+      - C'est ok
+      - oui, je confirme
       - Exactement
       - C'est ça
       - Tout à fait
@@ -214,12 +224,6 @@ nlu:
       - Absolument
       - Oui, c'est correct
       - Oui, tout à fait
-      - Oui, c'est bien ça
-      - Oui, c'est exact
-      - Oui, c'est juste
-      - Oui, c'est bon
-      - Oui, c'est précis
-      - C'est ok
       - ok, je confirme
       - je confirme
 
@@ -265,6 +269,13 @@ nlu:
       - Merci, au revoir
       - merci
       - bon après-midi
+
+  - intent: denied
+    examples: |
+      - non
+      - pas envie
+      - c'est non
+      - je ne contracte pas
 
   - regex: date
     examples: |

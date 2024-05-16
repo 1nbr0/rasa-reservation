@@ -5,3 +5,8 @@ rules:
     steps:
       - intent: goodbye
       - action: utter_goodbye
+
+  - rule: Go back to choice list when say no
+    steps:
+      - intent: denied
+      - action: utter_salutation

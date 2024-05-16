@@ -15,9 +15,11 @@ intents:
   - number_people
   - phone_number
   - customer_name
-  - confirm
   - cancel
   - booking_code
+  - confirm_update_commentary
+  - updated_commentary
+  - denied
 
 actions:
   - action_check_is_available
@@ -140,9 +142,6 @@ responses:
   utter_custommer_name:
     - text: Quel nom pour la réservation ?
 
-  utter_resume:
-    - text: "Pour résumer, vous souhaitez réserver une table pour le {date} à {time} pour {nb_person} au nom de {customer_name}. \nVotre numéro de téléphone est {phone_number}."
-
   # Cancel booking
   utter_cancel_booking:
     - text: Très bien. Veuillez saisir le code de réservation, s'il vous plaît.
@@ -193,6 +192,10 @@ responses:
   # commentary
   utter_commentary:
     - text: Veuillez saisir un commentaire, si vous le souhaitez.
+
+  # commentary info
+  utter_commentary_info:
+    - text: D'accord, saisissez votre commentaire.
 
 session_config:
   session_expiration_time: 60
