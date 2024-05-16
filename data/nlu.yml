@@ -24,13 +24,46 @@ nlu:
 
   - intent: cancel_booking
     examples: |
-      - Annuler une réservation
       - Annuler
+      - Annuler une réservation
+      - Je veux annuler ma réservation
+      - Je voudrais annuler ma réservation
+      - Annulation de la réservation
+      - Puis-je annuler ma réservation ?
+      - Je souhaite annuler ma réservation
+      - Comment annuler ma réservation ?
+      - Annuler ma réservation
+      - Annulez la réservation, s'il vous plaît
+      - J'aimerais annuler ma réservation
+      - Je n'ai plus besoin de ma réservation
+      - Je ne viendrai pas, annulez ma réservation
+      - Je dois annuler ma réservation
+      - Veuillez annuler ma réservation
+      - Désolé, je dois annuler ma réservation
 
   - intent: info_booking
     examples: |
-      - Info sur une réservation
       - Info
+      - Info sur une réservation
+      - Je veux des informations sur ma réservation
+      - Informations sur ma réservation
+      - Détails de ma réservation
+      - Pouvez-vous me donner des informations sur ma réservation ?
+      - J'aimerais savoir les détails de ma réservation
+      - Statut de ma réservation
+      - Vérifier ma réservation
+      - Voir ma réservation
+      - Où en est ma réservation ?
+      - Informations de réservation
+      - Dites-moi en plus sur ma réservation
+      - Consulter ma réservation
+      - Vérifier le statut de ma réservation
+      - Où en est ma réservation ?
+      - Quelles sont les informations de ma réservation ?
+      - Montrez-moi les détails de ma réservation
+      - J'aimerais connaître l'état de ma réservation
+      - Veuillez me donner des détails sur ma réservation
+      - Ma réservation, s'il vous plaît
 
   - intent: menu_of_the_day
     examples: |
@@ -205,18 +238,19 @@ nlu:
       - Je change d'avis
       - Ce n'est pas ce que je veux
 
-  - intent: code_resa
+  - intent: booking_code
     examples: |
-      - Mon code de réservation est : [5]{"entity": "bookingId"}
-      - [52]{"entity": "bookingId"}
-      - [505]{"entity": "bookingId"}
-      - Le code de réservation est : [123]{"entity": "bookingId"}
-      - J'ai un code de réservation : [987]{"entity": "bookingId"}
-      - Voici mon code de réservation : [456]{"entity": "bookingId"}
-      - Mon numéro de réservation est : [789]{"entity": "bookingId"}
-      - Le numéro de réservation que j'ai est : [654]{"entity": "bookingId"}
-      - Je peux vous donner le code de réservation : [321]{"entity": "bookingId"}
-      - Mon code de réservation personnel est : [555]{"entity": "bookingId"}
+      - Mon code de réservation est : [d0725eb9-2c39-4bfd-937e-0a7b447a7036]{"entity": "bookingId"}
+      - Mon code est : [2g725eb9-2c39-4bfd-937e-0a7b447a7036]{"entity": "bookingId"}
+      - [447199a3-eaf9-443f-91a9-95b39aacbb4b]{"entity": "bookingId"}
+      - [8543752b-4e0d-42d9-8a90-d07665b55e7b]{"entity": "bookingId"}
+      - Le code de réservation est : [5aeb7b0d-663c-4605-aad0-9c82b36c6c11]{"entity": "bookingId"}
+      - J'ai un code de réservation : [d9b938b2-c105-4539-997c-1aef4fe8c715]{"entity": "bookingId"}
+      - Voici mon code de réservation : [45a5a67c62-c2ad-49e1-987f-2477f4cb10ed6]{"entity": "bookingId"}
+      - Mon numéro de réservation est : [78a67c62-c2ad-49e1-987f-2477f4cb10ed]{"entity": "bookingId"}
+      - Le numéro de réservation que j'ai est : [5aeb7b0d-663c-4605-aad0-9c82b36c6c11]{"entity": "bookingId"}
+      - Je peux vous donner le code de réservation : [5c0ff246-3f99-40f8-8862-98222574c8c1]{"entity": "bookingId"}
+      - Mon code de réservation personnel est : [092813c3-3ea6-4174-bb1c-44cd5bae4f82]{"entity": "bookingId"}
 
   - intent: goodbye
     examples: |

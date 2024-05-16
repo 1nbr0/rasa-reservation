@@ -21,47 +21,48 @@ stories:
       - intent: number_people
         entities:
           - entity_name: slot_nb_person
-      - action: utter_custommer_name
-      # - action: action_check_is_available
+      - action: action_check_is_available
 
   - story: new_booking_story_path_2
     steps:
-      - or:
-          - slot_was_set:
-              - isAvailable: true
-      - intent: customer_name
-        entities:
-          - entity_name: slot_name
-      - action: utter_phone_number
-      - intent: phone_number
-        entities:
-          - entity_name: slot_phone_nb
-      - action: action_create_booking
-      - action: utter_commentary
-      - intent: commentary
-        entities:
-          - entity_name: slot_commentary
-    # - action: action_update_booking_comment
+    - or:
+      - slot_was_set:
+          - isAvailable: true
+    - intent: customer_name
+      entities:
+        - entity_name: slot_name
+    - action: utter_phone_number
+    - intent: phone_number
+      entities:
+        - entity_name: slot_phone_nb
+    - action: utter_commentary
+    - intent: commentary
+      entities:
+        - entity_name: slot_commentary
+    - action: action_create_booking
+    - intent: confirm
+    - action: utter_resume
 
   - story: cancel_booking_story
     steps:
-      - intent: cancel
-      # - action: action_set_slot_cancel
-      - action: utter_cancel_booking
-      - intent: code_resa
-        entities:
-          - entity_name: slot_code_resa
-      # - action: action_check_code_resa
+    - intent: cancel_booking
+    - action: utter_cancel_booking
+    - intent: booking_code
+      entities:
+        - entity_name: slot_booking_code
+    - action: action_check_booking_code
+    - slot_was_set:
+        - isBookingExist: True
+    - action: action_delete_booking
 
   - story: info_booking_story
     steps:
       - intent: info_booking
-      # - action: action_set_slot_info
       - action: utter_info_booking
-      - intent: code_resa
+      - intent: booking_code
         entities:
-          - entity_name: slot_code_resa
-    # - action: action_check_code_resa
+          - entity_name: slot_booking_code
+      - action: action_get_booking_info
 
   - story: menu_of_the_day_story
     steps:
@@ -87,4 +88,4 @@ stories:
       - intent: commentary
         entities:
           - entity_name: slot_commentary
-    # - action: action_update_booking_comment
+      # - action: action_update_booking_comment

@@ -17,16 +17,15 @@ intents:
   - customer_name
   - confirm
   - cancel
-  - code_resa
+  - booking_code
 
 actions:
-  #   - action_check_is_available
+  - action_check_is_available
   - action_create_booking
-#   - action_check_code_resa
-#   - action_update_booking_comment
-#   - action_set_slot_cancel
-#   - action_set_slot_info
-#   - action_delete_booking
+  - action_check_booking_code
+  - action_update_booking_commentary
+  - action_get_booking_info
+  - action_delete_booking
 
 entities:
   - date
@@ -76,8 +75,8 @@ slots:
       - type: from_entity
         entity: nb_person
 
-  slot_code_resa:
-    type: float
+  slot_booking_code:
+    type: text
     influence_conversation: false
     mappings:
       - type: from_entity
@@ -139,18 +138,21 @@ responses:
     - text: Renseigner un numéro de téléphone pour la réservation.
 
   utter_custommer_name:
-    - text: C'est noté, quel nom pour la réservation ?
+    - text: Quel nom pour la réservation ?
 
-  utter_resume_and_date_verification:
-    - text: Pour récapituler, vous souhaitez réserver une table pour le {date} à {time} pour {nb_person}. Votre numéro de téléphone est {phone_number} Pouvez-vous confirmer ces informations?
+  utter_resume:
+    - text: "Pour résumer, vous souhaitez réserver une table pour le {date} à {time} pour {nb_person} au nom de {customer_name}. \nVotre numéro de téléphone est {phone_number}."
 
   # Cancel booking
   utter_cancel_booking:
-    - text: Veuillez saisir le code de réservation
+    - text: Très bien. Veuillez saisir le code de réservation, s'il vous plaît.
+
+  utter_invalid_booking_code:
+    - text: "Le code de réservation est invalide."
 
   # Info booking
   utter_info_booking:
-    - text: Veuillez saisir le code de réservation
+    - text: Très bien. Veuillez saisir le code de réservation, s'il vous plaît.
 
   # Menu of the day
   utter_menu_of_the_day:
@@ -167,7 +169,7 @@ responses:
 
   # commentary
   utter_commentary:
-    - text: Veuillez saisir le commentaire
+    - text: Veuillez saisir un commentaire, si vous le souhaitez.
 
 session_config:
   session_expiration_time: 60
